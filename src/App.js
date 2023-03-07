@@ -1,8 +1,16 @@
 import "./App.css";
 
-function App() {
+const Header = () => {
   return (
-    <div className='App'>
+    <div>
+      <a href='#s'>Home News Feed Messages</a>
+    </div>
+  );
+};
+
+const Technologies = () => {
+  return (
+    <div>
       <ul>
         <li>html</li>
         <li>css</li>
@@ -11,6 +19,15 @@ function App() {
       </ul>
     </div>
   );
-}
+};
+
+const App = () => {
+  return (
+    <div>
+      <Header />
+      <Technologies />
+    </div>
+  );
+};
 
 export default App;
