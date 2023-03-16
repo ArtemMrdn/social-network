@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Dialogs from "./components/Dialogs/Dialogs";
 import Header from "./components/Header/Header";
@@ -12,16 +12,16 @@ const App = (props) => {
         <Header />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route
-            path='/dialogs'
-            render={() => (
-              <Dialogs messages={props.messages} dialogs={props.dialogs} />
-            )}
-          />
-          <Route
-            path='/profile'
-            render={() => <Profile posts={props.posts} />}
-          />
+          <Routes>
+            <Route
+              path='/dialogs'
+              element={<Dialogs state={props.state.dialogsPage} />}
+            />
+            <Route
+              path='/profile'
+              element={<Profile state={props.state.profilePage} />}
+            />
+          </Routes>
         </div>
       </div>
     </BrowserRouter>
