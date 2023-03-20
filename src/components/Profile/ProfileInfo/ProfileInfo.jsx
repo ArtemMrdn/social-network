@@ -1,14 +1,18 @@
-import s from "./ProfileInfo.module.css";
+import React from 'react';
+import s from './ProfileInfo.module.css';
 
 const ProfileInfo = () => {
-  return (
-    <div>
-      <div>
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7qpwVVDL5JxcranO9YRjfs4WG4hliTEh4IA44dKd2zqXcpp72HuV6BfncHV59FQ6NnwQ&usqp=CAU' />
-      </div>
-      <div className={s.descriptionBlock}>ava+description</div>
-    </div>
-  );
-};
+    return (
+        <div>
+            <div>
+                <img
+                    src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350'/>
+            </div>
+            <div className={s.descriptionBlock}>
+                ava + description
+            </div>
+        </div>
+    )
+}
 
 export default ProfileInfo;

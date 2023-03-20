@@ -1,24 +1,26 @@
-const state = {
-  dialogsPage: {
-    messages: [
+import { rerenderEntireTree } from "../render";
+
+let state = {
+  profilePage: {
+    posts: [
       { id: 1, message: "Hi" },
       { id: 2, message: "Hi, hru?" },
       { id: 3, message: "Hi everyone" },
     ],
+  },
+  dialogsPage: {
     dialogs: [
       { id: 1, name: "Artem" },
       { id: 2, name: "Daniel" },
       { id: 3, name: "Valera" },
       { id: 4, name: "Sanek" },
     ],
-  },
-
-  profilePage: {
-    posts: [
+    messages: [
       { id: 1, message: "Hi, how are you?", likesCount: 10 },
       { id: 2, message: "It's my first post", likesCount: 12 },
     ],
   },
+  sidebar: {},
 };
 
 export let addPost = (postMessage) => {
@@ -27,7 +29,8 @@ export let addPost = (postMessage) => {
     message: postMessage,
     likesCount: 0,
   };
-  state.profilePage.push(newPost);
+  state.profilePage.posts.push(newPost);
+  rerenderEntireTree(state);
 };
 
 export default state;
