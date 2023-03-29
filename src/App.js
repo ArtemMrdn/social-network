@@ -8,13 +8,15 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = () => {
   return (
-    <div className='app-wrapper'>
-      <Header />
-      <Navbar />
-      <div className='app-wrapper-content'>
-        <Route path='/dialogs' render={() => <DialogsContainer />} />
+    <div id='root'>
+      <div className='app-wrapper'>
+        <Header />
+        <Navbar />
+        <div className='app-wrapper-content'>
+          <Route path='/dialogs' render={() => <DialogsContainer />} />
 
-        <Route path='/profile' render={() => <Profile />} />
+          <Route path='/profile' render={() => <Profile />} />
+        </div>
       </div>
     </div>
   );
