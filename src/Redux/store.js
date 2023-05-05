@@ -27,15 +27,16 @@ let store = {
     },
     sidebar: {},
   },
-  getState() {
-    return this._state;
-  },
   _callSubscriber() {
-    console.log("State Changed");
+    console.log("State changed");
   },
 
+  getState() {
+    debugger;
+    return this._state;
+  },
   subscribe(observer) {
-    this._callSubscriber = observer;
+    this._callSubscriber = observer; // observer
   },
 
   dispatch(action) {

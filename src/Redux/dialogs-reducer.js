@@ -22,7 +22,6 @@ const dialogsReducer = (state = initialState, action) => {
         ...state,
         messages: [...state.messages, { id: 6, message: body }],
       };
-
     default:
       return state;
   }
