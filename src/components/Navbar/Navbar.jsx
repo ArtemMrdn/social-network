@@ -20,6 +20,7 @@ const Navbar = () => {
           Users
         </NavLink>
       </div>
+
       <div className={s.item}>
         <a>News</a>
       </div>
