@@ -1,6 +1,5 @@
 import { usersAPI } from "../api/api";
-import { updateOjectInArray } from "../utils/object-helpers";
-
+import updateOjectInArray from "../utils/object-helpers";
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -35,7 +34,6 @@ const usersReducer = (state = initialState, action) => {
           followed: false,
         }),
       };
-
     case SET_USERS: {
       return { ...state, users: action.users };
     }
@@ -88,7 +86,6 @@ export const requestUsers = (page, pageSize) => {
     dispatch(setCurrentPage(page));
 
     let data = await usersAPI.getUsers(page, pageSize);
-
     dispatch(toggleIsFetching(false));
     dispatch(setUsers(data.items));
     dispatch(setTotalUsersCount(data.totalCount));
@@ -120,7 +117,6 @@ export const follow = (userId) => {
     );
   };
 };
-
 export const unfollow = (userId) => {
   return async (dispatch) => {
     followUnfollowFlow(

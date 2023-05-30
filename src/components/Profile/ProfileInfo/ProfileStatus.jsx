@@ -11,6 +11,7 @@ class ProfileStatus extends React.Component {
       editMode: true,
     });
   };
+
   deactivateEditMode() {
     this.setState({
       editMode: false,
@@ -30,12 +31,9 @@ class ProfileStatus extends React.Component {
         status: this.props.status,
       });
     }
-
-    console.log("componentDidUpdate");
   }
 
   render() {
-    console.log("render");
     return (
       <div>
         {!this.state.editMode && (

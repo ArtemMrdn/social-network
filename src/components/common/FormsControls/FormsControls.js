@@ -30,7 +30,7 @@ export const Input = (props) => {
   );
 };
 
-export const CreateField = (
+export const createField = (
   placeholder,
   name,
   validators,
