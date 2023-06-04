@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import { BrowserRouter, Route, withRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Redirect,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
@@ -20,8 +26,19 @@ const ProfileContainer = React.lazy(() =>
 );
 
 class App extends Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    alert(promiseRejectionEvent);
+  };
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      "unhandledrejection",
+      this.catchAllUnhandledErrors
+    );
   }
 
   render() {
@@ -34,16 +51,22 @@ class App extends Component {
         <HeaderContainer />
         <Navbar />
         <div className='app-wrapper-content'>
-          <Route path='/dialogs' render={withSuspense(DialogsContainer)} />
+          <Switch>
+            <Route exact path='/' render={() => <Redirect to={"/profile"} />} />
 
-          <Route
-            path='/profile/:userId?'
-            render={withSuspense(ProfileContainer)}
-          />
+            <Route path='/dialogs' render={withSuspense(DialogsContainer)} />
 
-          <Route path='/users' render={() => <UsersContainer />} />
+            <Route
+              path='/profile/:userId?'
+              render={withSuspense(ProfileContainer)}
+            />
 
-          <Route path='/login' render={() => <LoginPage />} />
+            <Route path='/users' render={() => <UsersContainer />} />
+
+            <Route path='/login' render={() => <LoginPage />} />
+
+            <Route path='*' render={() => <div>404 NOT FOUND</div>} />
+          </Switch>
         </div>
       </div>
     );
