@@ -22,13 +22,13 @@ const Navbar = () => {
       </div>
 
       <div className={s.item}>
-        <a>News</a>
+        <a href='asdas'>News</a>
       </div>
       <div className={s.item}>
-        <a>Music</a>
+        <a href='asdas'>Music</a>
       </div>
       <div className={s.item}>
-        <a>Settings</a>
+        <a href='asdas'>Settings</a>
       </div>
     </nav>
   );

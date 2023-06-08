@@ -8,6 +8,7 @@ import {
   Switch,
   withRouter,
 } from "react-router-dom";
+
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import LoginPage from "./components/Login/Login";
@@ -26,14 +27,14 @@ const ProfileContainer = React.lazy(() =>
 );
 
 class App extends Component {
-  catchAllUnhandledErrors = (promiseRejectionEvent) => {
-    alert(promiseRejectionEvent);
+  catchAllUnhandledErrors = (reason, promise) => {
+    alert("Some error occured");
+    //console.error(promiseRejectionEvent);
   };
   componentDidMount() {
     this.props.initializeApp();
     window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
-
   componentWillUnmount() {
     window.removeEventListener(
       "unhandledrejection",

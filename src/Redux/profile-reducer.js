@@ -87,7 +87,7 @@ export const updateStatus = (status) => async (dispatch) => {
       dispatch(setStatus(status));
     }
   } catch (error) {
-    console.log(error);
+    //
   }
 };
 export const savePhoto = (file) => async (dispatch) => {

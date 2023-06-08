@@ -1,5 +1,6 @@
 import { usersAPI } from "../api/api";
-import updateOjectInArray from "../utils/object-helpers";
+import { updateObjectInArray } from "../utils/object-helpers";
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -23,14 +24,14 @@ const usersReducer = (state = initialState, action) => {
     case FOLLOW:
       return {
         ...state,
-        users: updateOjectInArray(state.users, action.userId, "id", {
+        users: updateObjectInArray(state.users, action.userId, "id", {
           followed: true,
         }),
       };
     case UNFOLLOW:
       return {
         ...state,
-        users: updateOjectInArray(state.users, action.userId, "id", {
+        users: updateObjectInArray(state.users, action.userId, "id", {
           followed: false,
         }),
       };
