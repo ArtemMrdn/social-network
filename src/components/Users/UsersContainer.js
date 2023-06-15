@@ -6,7 +6,7 @@ import {
   unfollow,
   toggleFollowingProgress,
   requestUsers,
-} from "../../redux/users-reducer";
+} from "../../redux/users-reducer.ts";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
