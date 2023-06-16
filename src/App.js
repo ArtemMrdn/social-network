@@ -16,7 +16,7 @@ import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer.ts";
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./redux/redux-store";
+import store from "./redux/redux-store.ts";
 import { withSuspense } from "./hoc/withSuspense";
 
 const DialogsContainer = React.lazy(() =>
@@ -62,7 +62,10 @@ class App extends Component {
               render={withSuspense(ProfileContainer)}
             />
 
-            <Route path='/users' render={() => <UsersContainer />} />
+            <Route
+              path='/users'
+              render={() => <UsersContainer pageTitle={"Сумарай"} />}
+            />
 
             <Route path='/login' render={() => <LoginPage />} />
 

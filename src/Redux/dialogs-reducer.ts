@@ -11,19 +11,15 @@ type MessageType = {
 
 let initialState = {
   dialogs: [
-    { id: 1, name: "Dimych" },
-    { id: 2, name: "Andrew" },
-    { id: 3, name: "Sveta" },
-    { id: 4, name: "Sasha" },
-    { id: 5, name: "Viktor" },
-    { id: 6, name: "Valera" },
+    { id: 1, name: "Artem" },
+    { id: 2, name: "Daniel" },
+    { id: 3, name: "Valera" },
+    { id: 4, name: "Sanek" },
   ] as Array<DialogType>,
   messages: [
     { id: 1, message: "Hi" },
-    { id: 2, message: "How is your it-kamasutra?" },
-    { id: 3, message: "Yo" },
-    { id: 4, message: "Yo" },
-    { id: 5, message: "Yo" },
+    { id: 2, message: "Hi, hru?" },
+    { id: 3, message: "Hi everyone" },
   ] as Array<MessageType>,
 };
 

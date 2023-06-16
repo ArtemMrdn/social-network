@@ -7,7 +7,6 @@ import {
   toggleFollowingProgress,
   requestUsers,
 } from "../../redux/users-reducer.ts";
-import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
 import {
@@ -17,7 +16,8 @@ import {
   getPageSize,
   getTotalUsersCount,
   getUsers,
-} from "../../redux/users-selectors";
+} from "../../redux/users-selectors.ts";
+import Users from "./Users.tsx";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
