@@ -66,13 +66,16 @@ type AddPostActionCreatorActionType = {
   type: typeof ADD_POST;
   newPostText: string;
 };
+
 export const addPostActionCreator = (
   newPostText: string
 ): AddPostActionCreatorActionType => ({ type: ADD_POST, newPostText });
+
 type SetUserProfileActionType = {
   type: typeof SET_USER_PROFILE;
   profile: ProfileType;
 };
+
 export const setUserProfile = (
   profile: ProfileType
 ): SetUserProfileActionType => ({ type: SET_USER_PROFILE, profile });
@@ -80,6 +83,7 @@ type SetStatusActionType = {
   type: typeof SET_STATUS;
   status: string;
 };
+
 export const setStatus = (status: string): SetStatusActionType => ({
   type: SET_STATUS,
   status,
@@ -88,10 +92,12 @@ type DeletePostActionType = {
   type: typeof DELETE_POST;
   postId: number;
 };
+
 export const deletePost = (postId: number): DeletePostActionType => ({
   type: DELETE_POST,
   postId,
 });
+
 // type SavePhotoSuccessActionType = {
 //   type: typeof SAVE_PHOTO_SUCCESS;
 //   photos: PhotosType;
