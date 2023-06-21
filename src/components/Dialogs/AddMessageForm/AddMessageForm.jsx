@@ -1,10 +1,10 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-import { Textarea } from "../../common/FormsControls/FormsControls";
+import { Textarea } from "../../common/FormsControls/FormsControls.tsx";
 import {
   maxLengthCreator,
   required,
-} from "../../../utils/validators/validators";
+} from "../../../utils/validators/validators.ts";
 
 const maxLength50 = maxLengthCreator(50);
 

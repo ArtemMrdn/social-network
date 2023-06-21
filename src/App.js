@@ -11,13 +11,13 @@ import {
 
 import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
-import LoginPage from "./components/Login/Login";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer.ts";
 import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store.ts";
 import { withSuspense } from "./hoc/withSuspense";
+import LoginPage from "./components/Login/Login.tsx";
 
 const DialogsContainer = React.lazy(() =>
   import("./components/Dialogs/DialogsContainer")

@@ -4,7 +4,7 @@ import {
   createField,
   Input,
   Textarea,
-} from "../../common/FormsControls/FormsControls";
+} from "../../common/FormsControls/FormsControls.tsx";
 import { reduxForm } from "redux-form";
 import style from "../../common/FormsControls/FormsControls.module.css";
 
