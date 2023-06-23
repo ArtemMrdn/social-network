@@ -1,9 +1,6 @@
-import {
-  ResultCodeEnum,
-  ResultCodeForCaptcha,
-  authAPI,
-  securityAPI,
-} from "../api/api.ts";
+import { ResultCodeEnum, ResultCodeForCaptchaEnum } from "../api/api.ts";
+import { authAPI } from "../api/auth-api.ts";
+import { securityAPI } from "../api/security-api.ts";
 import { stopSubmit } from "redux-form";
 
 const SET_USER_DATA = "samurai-network/auth/SET_USER_DATA";
@@ -82,7 +79,7 @@ export const login =
       // success, get auth data
       dispatch(getAuthUserData());
     } else {
-      if (data.resultCode === ResultCodeForCaptcha.CaptchaIsRequired) {
+      if (data.resultCode === ResultCodeForCaptchaEnum.CaptchaIsRequired) {
         dispatch(getCaptchaUrl());
       }
 
@@ -92,8 +89,8 @@ export const login =
   };
 
 export const getCaptchaUrl = () => async (dispatch: any) => {
-  const response = await securityAPI.getCaptchaUrl();
-  const captchaUrl = response.data.url;
+  const data = await securityAPI.getCaptchaUrl();
+  const captchaUrl = data.url;
   dispatch(getCaptchaUrlSuccess(captchaUrl));
 };
 
