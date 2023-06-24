@@ -1,8 +1,8 @@
 import {
   instance,
   APIResponseType,
-  ResultCodeEnum,
-  ResultCodeForCaptchaEnum,
+  ResultCodesEnum,
+  ResultCodeForCapcthaEnum,
 } from "./api.ts";
 
 type MeResponseDataType = {
@@ -31,7 +31,7 @@ export const authAPI = {
       .post<
         APIResponseType<
           LoginResponseDataType,
-          ResultCodeForCaptchaEnum | ResultCodeEnum
+          ResultCodeForCapcthaEnum | ResultCodesEnum
         >
       >(`auth/login`, {
         email,
