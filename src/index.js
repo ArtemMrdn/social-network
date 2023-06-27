@@ -3,7 +3,7 @@ import * as serviceWorker from "./serviceWorker";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import SamuraiJSApp from "./App";
+import SamuraiJSApp from "./App.tsx";
 
 ReactDOM.render(<SamuraiJSApp />, document.getElementById("root"));
 

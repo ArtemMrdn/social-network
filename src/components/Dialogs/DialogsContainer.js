@@ -1,7 +1,7 @@
 import { actions } from "../../redux/dialogs-reducer.ts";
-import Dialogs from "./Dialogs";
+import Dialogs from "./Dialogs.tsx";
 import { connect } from "react-redux";
-import { withAuthRedirect } from "../../hoc/WithAuthRedirect";
+import { withAuthRedirect } from "../../hoc/WithAuthRedirect.tsx";
 import { compose } from "redux";
 
 let mapStateToProps = (state) => {
