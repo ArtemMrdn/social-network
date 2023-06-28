@@ -42,7 +42,7 @@ const profileReducer = (
     case "SN/PROFILE/DELETE_POST":
       return {
         ...state,
-        posts: state.posts.filter((p) => p.id !== action.postId),
+        posts: state.posts.filter((p) => p.id != action.postId),
       };
 
     case "SN/PROFILE/SAVE_PHOTO_SUCCESS":
@@ -113,7 +113,7 @@ export const saveProfile =
     const data = await profileAPI.saveProfile(profile);
 
     if (data.resultCode === 0) {
-      if (userId !== null) {
+      if (userId != null) {
         dispatch(getUserProfile(userId));
       } else {
         throw new Error("userId can't be null");

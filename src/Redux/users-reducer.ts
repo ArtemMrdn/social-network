@@ -1,8 +1,8 @@
-import { usersAPI } from "../api/users-api.ts";
-import { updateObjectInArray } from "../utils/object-helpers";
+import { updateObjectInArray } from "../utils/object-helpers.ts";
 import { UserType } from "../types/types";
-import { BaseThunkType, InferActionsTypes } from "./redux-store";
-import { Dispatch } from "react";
+import { BaseThunkType, InferActionsTypes } from "./redux-store.tsx";
+import { Dispatch } from "redux";
+import { usersAPI } from "../api/users-api.ts";
 
 let initialState = {
   users: [] as Array<UserType>,
@@ -49,7 +49,7 @@ const usersReducer = (
         ...state,
         followingInProgress: action.isFetching
           ? [...state.followingInProgress, action.userId]
-          : state.followingInProgress.filter((id) => id !== action.userId),
+          : state.followingInProgress.filter((id) => id != action.userId),
       };
     }
     default:
@@ -104,7 +104,7 @@ const _followUnfollowFlow = async (
   dispatch(actions.toggleFollowingProgress(true, userId));
   let response = await apiMethod(userId);
 
-  if (response.data.resultCode === 0) {
+  if (response.data.resultCode == 0) {
     dispatch(actionCreator(userId));
   }
   dispatch(actions.toggleFollowingProgress(false, userId));

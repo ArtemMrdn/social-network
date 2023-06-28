@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { follow, unfollow, requestUsers } from "../../redux/users-reducer";
-import Users from "./Users";
-import Preloader from "../common/Preloader/Preloader";
+import { follow, unfollow, requestUsers } from "../../redux/users-reducer.ts";
+import Users from "./Users.tsx";
+import Preloader from "../common/Preloader/Preloader.tsx";
 import { compose } from "redux";
 import {
   getCurrentPage,
@@ -11,9 +11,9 @@ import {
   getPageSize,
   getTotalUsersCount,
   getUsers,
-} from "../../redux/users-selectors";
-import { UserType } from "../../types/types";
-import { AppStateType } from "../../redux/redux-store";
+} from "../../redux/users-selectors.ts";
+import { UserType } from "../../types/types.ts";
+import { AppStateType } from "../../redux/redux-store.ts";
 
 type MapStatePropsType = {
   currentPage: number;

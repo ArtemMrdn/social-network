@@ -2,8 +2,8 @@ import React from "react";
 import { InjectedFormProps, reduxForm } from "redux-form";
 import {
   createField,
-  Input,
   GetStringKeys,
+  Input,
 } from "../common/FormsControls/FormsControls.tsx";
 import { required } from "../../utils/validators/validators.ts";
 import { connect } from "react-redux";

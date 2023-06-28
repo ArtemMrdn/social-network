@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar.tsx";
 import {
   BrowserRouter,
   Redirect,
@@ -9,21 +9,21 @@ import {
   withRouter,
 } from "react-router-dom";
 
-import UsersContainer from "./components/Users/UsersContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
+import UsersContainer from "./components/Users/UsersContainer.tsx";
+import HeaderContainer from "./components/Header/HeaderContainer.tsx";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer.ts";
-import Preloader from "./components/common/Preloader/Preloader";
+import Preloader from "./components/common/Preloader/Preloader.tsx";
 import store, { AppStateType } from "./redux/redux-store.ts";
 import { withSuspense } from "./hoc/withSuspense.tsx";
 import LoginPage from "./components/Login/Login.tsx";
 
 const DialogsContainer = React.lazy(
-  () => import("./components/Dialogs/DialogsContainer")
+  () => import("./components/Dialogs/DialogsContainer.tsx")
 );
 const ProfileContainer = React.lazy(
-  () => import("./components/Profile/ProfileContainer")
+  () => import("./components/Profile/ProfileContainer.tsx")
 );
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;

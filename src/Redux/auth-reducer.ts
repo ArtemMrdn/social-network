@@ -1,8 +1,9 @@
-import { ResultCodesEnum, ResultCodeForCapcthaEnum } from "../api/api.ts";
+import { ResultCodeForCapcthaEnum, ResultCodesEnum } from "../api/api.ts";
+import { stopSubmit } from "redux-form";
 import { authAPI } from "../api/auth-api.ts";
 import { securityAPI } from "../api/security-api.ts";
-import { FormAction, stopSubmit } from "redux-form";
-import { BaseThunkType, InferActionsTypes } from "./redux-store.js";
+import { BaseThunkType, InferActionsTypes } from "./redux-store.tsx";
+import { FormAction } from "redux-form/lib/actions";
 
 let initialState = {
   userId: null as number | null,

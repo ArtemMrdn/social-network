@@ -1,14 +1,14 @@
 import React from "react";
 import { InjectedFormProps, reduxForm } from "redux-form";
 import {
-  Textarea,
   createField,
+  Textarea,
 } from "../../common/FormsControls/FormsControls.tsx";
 import {
   maxLengthCreator,
   required,
 } from "../../../utils/validators/validators.ts";
-import { NewMessageFormValuesType } from "../Dialogs.js";
+import { NewMessageFormValuesType } from "../Dialogs";
 
 const maxLength50 = maxLengthCreator(50);
 
