@@ -42,7 +42,7 @@ const profileReducer = (
     case "SN/PROFILE/DELETE_POST":
       return {
         ...state,
-        posts: state.posts.filter((p) => p.id != action.postId),
+        posts: state.posts.filter((p) => p.id !== action.postId),
       };
 
     case "SN/PROFILE/SAVE_PHOTO_SUCCESS":
