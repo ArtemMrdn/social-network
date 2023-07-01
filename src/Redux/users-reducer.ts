@@ -49,7 +49,7 @@ const usersReducer = (
         ...state,
         followingInProgress: action.isFetching
           ? [...state.followingInProgress, action.userId]
-          : state.followingInProgress.filter((id) => id != action.userId),
+          : state.followingInProgress.filter((id) => id !== action.userId),
       };
     }
     default:
@@ -86,6 +86,7 @@ export const actions = {
 
 export const requestUsers = (page: number, pageSize: number): ThunkType => {
   return async (dispatch, getState) => {
+    dispatch(actions.toggleIsFetching(true));
     dispatch(actions.setCurrentPage(page));
 
     let data = await usersAPI.getUsers(page, pageSize);
@@ -98,13 +99,13 @@ export const requestUsers = (page: number, pageSize: number): ThunkType => {
 const _followUnfollowFlow = async (
   dispatch: Dispatch<ActionsTypes>,
   userId: number,
-  apiMethod: any,
+  apiMethod: (userId: number) => Promise<APIResponseType>,
   actionCreator: (userId: number) => ActionsTypes
 ) => {
   dispatch(actions.toggleFollowingProgress(true, userId));
   let response = await apiMethod(userId);
 
-  if (response.data.resultCode == 0) {
+  if (response.resultCode === 0) {
     dispatch(actionCreator(userId));
   }
   dispatch(actions.toggleFollowingProgress(false, userId));
@@ -112,7 +113,7 @@ const _followUnfollowFlow = async (
 
 export const follow = (userId: number): ThunkType => {
   return async (dispatch) => {
-    _followUnfollowFlow(
+    await _followUnfollowFlow(
       dispatch,
       userId,
       usersAPI.follow.bind(usersAPI),
@@ -123,7 +124,7 @@ export const follow = (userId: number): ThunkType => {
 
 export const unfollow = (userId: number): ThunkType => {
   return async (dispatch) => {
-    _followUnfollowFlow(
+    await _followUnfollowFlow(
       dispatch,
       userId,
       usersAPI.unfollow.bind(usersAPI),
@@ -134,6 +135,6 @@ export const unfollow = (userId: number): ThunkType => {
 
 export default usersReducer;
 
-type InitialState = typeof initialState;
+export type InitialState = typeof initialState;
 type ActionsTypes = InferActionsTypes<typeof actions>;
 type ThunkType = BaseThunkType<ActionsTypes>;
