@@ -16,7 +16,7 @@ type PropsType = {
   onFilterChanged: (filter: FilterType) => void;
 };
 
-const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
+export const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
   const submit = (
     values: FormType,
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void }
@@ -60,5 +60,3 @@ const UsersSearchForm: React.FC<PropsType> = React.memo((props) => {
     </div>
   );
 });
-
-export default UsersSearchForm;

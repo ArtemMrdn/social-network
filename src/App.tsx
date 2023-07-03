@@ -9,7 +9,7 @@ import {
   withRouter,
 } from "react-router-dom";
 
-import UsersContainer from "./components/Users/UsersContainer.tsx";
+import { UsersPage } from "./components/Users/UsersContainer.tsx";
 import HeaderContainer from "./components/Header/HeaderContainer.tsx";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
@@ -17,7 +17,7 @@ import { initializeApp } from "./redux/app-reducer.ts";
 import Preloader from "./components/common/Preloader/Preloader.tsx";
 import store, { AppStateType } from "./redux/redux-store.ts";
 import { withSuspense } from "./hoc/withSuspense.tsx";
-import LoginPage from "./components/Login/Login.tsx";
+import { LoginPage } from "./components/Login/LoginPage.tsx";
 
 const DialogsContainer = React.lazy(
   () => import("./components/Dialogs/DialogsContainer.tsx")
@@ -71,7 +71,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
 
             <Route
               path='/users'
-              render={() => <UsersContainer pageTitle={"Самураи"} />}
+              render={() => <UsersPage pageTitle={"Самураи"} />}
             />
 
             <Route path='/login' render={() => <LoginPage />} />
