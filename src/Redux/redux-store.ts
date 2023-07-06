@@ -3,7 +3,7 @@ import {
   applyMiddleware,
   combineReducers,
   compose,
-  legacy_createStore,
+  createStore,
 } from "redux";
 import profileReducer from "./profile-reducer.ts";
 import dialogsReducer from "./dialogs-reducer.ts";
@@ -42,7 +42,7 @@ export type BaseThunkType<
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = legacy_createStore(
+const store = createStore(
   rootReducer,
   composeEnhancers(applyMiddleware(thunkMiddleware))
 );
