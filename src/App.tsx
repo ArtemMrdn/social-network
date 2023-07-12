@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar.tsx";
 import {
   BrowserRouter,
   Link,
@@ -11,7 +10,6 @@ import {
 } from "react-router-dom";
 
 import { UsersPage } from "./components/Users/UsersContainer.tsx";
-import HeaderContainer from "./components/Header/HeaderContainer.tsx";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer.ts";
@@ -37,6 +35,7 @@ const DialogsContainer = React.lazy(
 const ProfileContainer = React.lazy(
   () => import("./components/Profile/ProfileContainer.tsx")
 );
+const ChatPage = React.lazy(() => import("./pages/Chat/ChatPage.tsx"));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 type DispatchPropsType = {
@@ -45,6 +44,7 @@ type DispatchPropsType = {
 
 const SuspendedDialogs = withSuspense(DialogsContainer);
 const SuspendedProfile = withSuspense(ProfileContainer);
+const SuspendedChatPage = withSuspense(ChatPage);
 
 class App extends Component<MapPropsType & DispatchPropsType> {
   catchAllUnhandledErrors = (e: PromiseRejectionEvent) => {
@@ -112,6 +112,18 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                   <Menu.Item key='7'>option7</Menu.Item>
                   <Menu.Item key='8'>option8</Menu.Item> */}
                 </SubMenu>
+                <SubMenu
+                  key='sub3'
+                  icon={<NotificationOutlined />}
+                  title='subnav 3'
+                >
+                  <Menu.Item key='9'>
+                    <Link to='/chat'>Chat</Link>
+                  </Menu.Item>
+                  <Menu.Item key='10'>option10</Menu.Item>
+                  <Menu.Item key='11'>option11</Menu.Item>
+                  <Menu.Item key='12'>option12</Menu.Item>
+                </SubMenu>
               </Menu>
             </Sider>
             <Content style={{ padding: "0 24px", minHeight: 280 }}>
@@ -135,6 +147,8 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                 />
 
                 <Route path='/login' render={() => <LoginPage />} />
+
+                <Route path='/chat' render={() => <SuspendedChatPage />} />
 
                 <Route path='*' render={() => <div>404 NOT FOUND</div>} />
               </Switch>

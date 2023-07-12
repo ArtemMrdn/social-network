@@ -55,7 +55,7 @@ export const Users: FC<PropsType> = (props) => {
     }
 
     dispatch(requestUsers(actualPage, pageSize, actualFilter));
-  }, []);
+  }, [currentPage, dispatch, filter, history.location.search, pageSize]);
 
   useEffect(() => {
     const query: QueryParamsType = {};
@@ -68,7 +68,7 @@ export const Users: FC<PropsType> = (props) => {
       pathname: "/developers",
       search: queryString.stringify(query),
     });
-  }, [filter, currentPage]);
+  }, [filter, currentPage, history]);
 
   const onPageChanged = (pageNumber: number) => {
     dispatch(requestUsers(pageNumber, pageSize, filter));
