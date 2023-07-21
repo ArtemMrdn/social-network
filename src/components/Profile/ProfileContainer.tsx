@@ -1,5 +1,5 @@
 import React from "react";
-import Profile from "./Profile.tsx";
+import Profile from "./Profile";
 import { connect } from "react-redux";
 import {
   getStatus,
@@ -7,7 +7,7 @@ import {
   savePhoto,
   saveProfile,
   updateStatus,
-} from "../../redux/profile-reducer.ts";
+} from "../../redux/profile-reducer";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import { compose } from "redux";
 import { AppStateType } from "../../redux/redux-store";
@@ -43,7 +43,7 @@ class ProfileContainer extends React.Component<PropsType> {
 
     if (!userId) {
       console.error(
-        "ID should exists in URI params or in state ('authorizedUserId')"
+        "ID should exi in URI params or in state ('authorizedUserId')"
       );
     } else {
       this.props.getUserProfile(userId);

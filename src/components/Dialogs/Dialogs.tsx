@@ -1,8 +1,8 @@
 import React from "react";
 import s from "./Dialogs.module.css";
-import DialogItem from "./DialogItem/DialogItem.tsx";
-import Message from "./Message/Message.tsx";
-import AddMessageForm from "./AddMessageForm/AddMessageForm.tsx";
+import DialogItem from "./DialogItem/DialogItem";
+import Message from "./Message/Message";
+import AddMessageForm from "./AddMessageForm/AddMessageForm";
 import { InitialStateType } from "../../redux/dialogs-reducer";
 
 type PropsType = {
@@ -17,10 +17,10 @@ export type NewMessageFormValuesType = {
 const Dialogs: React.FC<PropsType> = (props) => {
   let state = props.dialogsPage;
 
-  let dialogsElements = state.dialogs.map((d) => (
+  let dialogsEleme = state.dialogs.map((d) => (
     <DialogItem name={d.name} key={d.id} id={d.id} />
   ));
-  let messagesElements = state.messages.map((m) => (
+  let messagesEleme = state.messages.map((m) => (
     <Message message={m.message} key={m.id} />
   ));
 
@@ -30,9 +30,9 @@ const Dialogs: React.FC<PropsType> = (props) => {
 
   return (
     <div className={s.dialogs}>
-      <div className={s.dialogsItems}>{dialogsElements}</div>
+      <div className={s.dialogsItems}>{dialogsEleme}</div>
       <div className={s.messages}>
-        <div>{messagesElements}</div>
+        <div>{messagesEleme}</div>
       </div>
       <AddMessageForm onSubmit={addNewMessage} />
     </div>

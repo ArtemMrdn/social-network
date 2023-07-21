@@ -3,11 +3,11 @@ import { InjectedFormProps, reduxForm } from "redux-form";
 import {
   createField,
   Textarea,
-} from "../../common/FormsControls/FormsControls.tsx";
+} from "../../common/FormsControls/FormsControls";
 import {
   maxLengthCreator,
   required,
-} from "../../../utils/validators/validators.ts";
+} from "../../../utils/validators/validators";
 import { NewMessageFormValuesType } from "../Dialogs";
 
 const maxLength50 = maxLengthCreator(50);

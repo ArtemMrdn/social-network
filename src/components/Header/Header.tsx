@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   selectCurrentUserLogin,
   selectIsAuth,
-} from "../../redux/auth-selectors.ts";
-import { logout } from "../../redux/auth-reducer.ts";
+} from "../../redux/auth-selectors";
+import { logout } from "../../redux/auth-reducer";
 
 export type MapPropsType = {};
 

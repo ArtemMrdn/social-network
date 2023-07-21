@@ -5,10 +5,10 @@ import {
   GetStringKeys,
   Input,
   Textarea,
-} from "../../common/FormsControls/FormsControls.tsx";
+} from "../../common/FormsControls/FormsControls";
 import { InjectedFormProps, reduxForm } from "redux-form";
 import style from "../../common/FormsControls/FormsControls.module.css";
-import { ProfileType } from "../../../types/types.ts";
+import { ProfileType } from "../../../types/types";
 
 type PropsType = {
   profile: ProfileType;
@@ -50,13 +50,13 @@ const ProfileDataForm: React.FC<
         {createField<ProfileTypeKeys>("About me", "aboutMe", [], Textarea)}
       </div>
       <div>
-        <b>Contacts</b>:{" "}
-        {Object.keys(profile.contacts).map((key) => {
+        <b>Conta</b>:{" "}
+        {Object.keys(profile.conta).map((key) => {
           return (
             <div key={key} className={s.contact}>
-              {/* todo: create some solution for embedded objects */}
+              {/* todo: create some solution for embedded obje */}
               <b>
-                {key}: {createField(key, "contacts." + key, [], Input)}
+                {key}: {createField(key, "conta." + key, [], Input)}
               </b>
             </div>
           );

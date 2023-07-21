@@ -1,11 +1,11 @@
-import { actions } from "../../../redux/profile-reducer.ts";
-import MyPosts, { DispatchPropsType, MapPropsType } from "./MyPosts.tsx";
+import { actions } from "../../../redux/profile-reducer";
+import MyPo, { DispatchPropsType, MapPropsType } from "./MyPo";
 import { connect } from "react-redux";
-import { AppStateType } from "../../../redux/redux-store.ts";
+import { AppStateType } from "../../../redux/redux-store";
 
 const mapStateToProps = (state: AppStateType) => {
   return {
-    posts: state.profilePage.posts,
+    po: state.profilePage.po,
   };
 };
 
@@ -16,6 +16,6 @@ const MyPostsContainer = connect<
   AppStateType
 >(mapStateToProps, {
   addPost: actions.addPostActionCreator,
-})(MyPosts);
+})(MyPo);
 
 export default MyPostsContainer;

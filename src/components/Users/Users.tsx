@@ -1,8 +1,8 @@
 import React, { FC, useEffect } from "react";
-import Paginator from "../common/Paginator/Paginator.tsx";
-import User from "./User.tsx";
-import { UsersSearchForm } from "./UsersSearchForm.tsx";
-import { FilterType, requestUsers } from "../../redux/users-reducer.ts";
+import Paginator from "../common/Paginator/Paginator";
+import User from "./User";
+import { UsersSearchForm } from "./UsersSearchForm";
+import { FilterType, requestUsers } from "../../redux/users-reducer";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getCurrentPage,
@@ -11,7 +11,7 @@ import {
   getTotalUsersCount,
   getUsers,
   getUsersFilter,
-} from "../../redux/users-selectors.ts";
+} from "../../redux/users-selectors";
 import { useHistory } from "react-router-dom";
 import queryString from "query-string";
 

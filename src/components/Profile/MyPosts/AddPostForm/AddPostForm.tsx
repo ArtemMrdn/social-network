@@ -4,8 +4,8 @@ import {
   createField,
   GetStringKeys,
   Input,
-} from "../../../common/FormsControls/FormsControls.tsx";
-import { required } from "../../../../utils/validators/validators.ts";
+} from "../../../common/FormsControls/FormsControls";
+import { required } from "../../../../utils/validators/validators";
 
 type PropsType = {};
 

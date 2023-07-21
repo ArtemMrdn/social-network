@@ -1,4 +1,4 @@
-import usersReducer, { actions, InitialState } from "./users-reducer.ts";
+import usersReducer, { actions, InitialState } from "./users-reducer";
 
 let state: InitialState;
 

@@ -1,10 +1,10 @@
 import React, { ChangeEvent, useState } from "react";
 import s from "./ProfileInfo.module.css";
-import Preloader from "../../common/Preloader/Preloader.tsx";
-import ProfileStatusWithHooks from "./ProfileStatusWithHooks.tsx";
-import userPhoto from "../../../assets/images/user.jpg";
-import ProfileDataForm from "./ProfileDataForm.tsx";
-import { ContactsType, ProfileType } from "../../../types/types.ts";
+import Preloader from "../../common/Preloader/Preloader";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
+import userPhoto from "../../../ass/images/user.jpg";
+import ProfileDataForm from "./ProfileDataForm";
+import { ContactsType, ProfileType } from "../../../types/types";
 
 type PropsType = {
   profile: ProfileType | null;
@@ -107,13 +107,13 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({
         <b>About me</b>: {profile.aboutMe}
       </div>
       <div>
-        <b>Contacts</b>:{" "}
-        {Object.keys(profile.contacts).map((key) => {
+        <b>Conta</b>:{" "}
+        {Object.keys(profile.conta).map((key) => {
           return (
             <Contact
               key={key}
               contactTitle={key}
-              contactValue={profile.contacts[key as keyof ContactsType]}
+              contactValue={profile.conta[key as keyof ContactsType]}
             />
           );
         })}

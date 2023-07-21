@@ -5,7 +5,7 @@
 // let store = {
 //   _state: {
 //     profilePage: {
-//       posts: [
+//       po: [
 //         { id: 1, message: "Hi, how are you?", likesCount: 10 },
 //         { id: 2, message: "It's my first post", likesCount: 12 },
 //       ],

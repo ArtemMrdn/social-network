@@ -3,7 +3,7 @@ import {
   APIResponseType,
   ResultCodesEnum,
   ResultCodeForCapcthaEnum,
-} from "./api.ts";
+} from "./api";
 
 type MeResponseDataType = {
   id: number;

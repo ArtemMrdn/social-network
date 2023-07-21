@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { follow, unfollow, requestUsers } from "../../redux/users-reducer.ts";
-import Preloader from "../common/Preloader/Preloader.tsx";
+import { follow, unfollow, requestUsers } from "../../redux/users-reducer";
+import Preloader from "../common/Preloader/Preloader";
 import { compose } from "redux";
 import {
   getCurrentPage,
@@ -10,8 +10,8 @@ import {
   getPageSize,
   getTotalUsersCount,
   getUsers,
-} from "../../redux/users-selectors.ts";
-import Users from "./Users.tsx";
+} from "../../redux/users-selectors";
+import Users from "./Users";
 
 class UsersContainer extends React.Component {
   componentDidMount() {

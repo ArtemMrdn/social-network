@@ -9,14 +9,14 @@ import {
   withRouter,
 } from "react-router-dom";
 
-import { UsersPage } from "./components/Users/UsersContainer.tsx";
+import { UsersPage } from "./compone/Users/UsersContainer";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
-import { initializeApp } from "./redux/app-reducer.ts";
-import Preloader from "./components/common/Preloader/Preloader.tsx";
-import store, { AppStateType } from "./redux/redux-store.ts";
-import { withSuspense } from "./hoc/withSuspense.tsx";
-import { LoginPage } from "./components/Login/LoginPage.tsx";
+import { initializeApp } from "./redux/app-reducer";
+import Preloader from "./compone/common/Preloader/Preloader";
+import store, { AppStateType } from "./redux/redux-store";
+import { withSuspense } from "./hoc/withSuspense";
+import { LoginPage } from "./compone/Login/LoginPage";
 
 import { Breadcrumb, Layout, Menu } from "antd";
 import {
@@ -24,18 +24,18 @@ import {
   NotificationOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Header } from "./components/Header/Header.tsx";
+import { Header } from "./compone/Header/Header";
 
 const { SubMenu } = Menu;
 const { Content, Footer, Sider } = Layout;
 
 const DialogsContainer = React.lazy(
-  () => import("./components/Dialogs/DialogsContainer")
+  () => import("./compone/Dialogs/DialogsContainer")
 );
 const ProfileContainer = React.lazy(
-  () => import("./components/Profile/ProfileContainer.tsx")
+  () => import("./compone/Profile/ProfileContainer")
 );
-const ChatPage = React.lazy(() => import("./pages/Chat/ChatPage.tsx"));
+const ChatPage = React.lazy(() => import("./pages/Chat/ChatPage"));
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 type DispatchPropsType = {

@@ -1,4 +1,4 @@
-import { APIResponseType, instance } from "./api.ts";
+import { APIResponseType, instance } from "./api";
 import { PhotosType, ProfileType } from "../types/types";
 
 type SavePhotoResponseDataType = {

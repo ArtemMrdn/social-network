@@ -7,13 +7,13 @@
 // import React from "react";
 
 // let state = {
-//   posts: [
+//   po: [
 //     { id: 1, message: "Hi, how are you?", likesCount: 10 },
 //     { id: 2, message: "It's my first post", likesCount: 12 },
 //   ],
 // };
 
-// it("length of posts should be incremented", () => {
+// it("length of po should be incremented", () => {
 //   // 1. test data
 //   let action = addPostActionCreator("it-kamasutra.com");
 
@@ -21,7 +21,7 @@
 //   let newState = profileReducer(state, action);
 
 //   // 3. expectation
-//   expect(newState.posts.length).toBe(5);
+//   expect(newState.po.length).toBe(5);
 // });
 
 // it("message of new post should be correct", () => {
@@ -32,7 +32,7 @@
 //   let newState = profileReducer(state, action);
 
 //   // 3. expectation
-//   expect(newState.posts[4].message).toBe("it-kamasutra.com");
+//   expect(newState.po[4].message).toBe("it-kamasutra.com");
 // });
 
 // it("after deleting length of messages should be decrement", () => {
@@ -43,7 +43,7 @@
 //   let newState = profileReducer(state, action);
 
 //   // 3. expectation
-//   expect(newState.posts.length).toBe(3);
+//   expect(newState.po.length).toBe(3);
 // });
 
 // it(`after deleting length shouldn't be decrement if id is incorrect`, () => {
@@ -54,5 +54,5 @@
 //   let newState = profileReducer(state, action);
 
 //   // 3. expectation
-//   expect(newState.posts.length).toBe(4);
+//   expect(newState.po.length).toBe(4);
 // });

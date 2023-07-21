@@ -1,4 +1,4 @@
-import { GetItemsType, APIResponseType, instance } from "./api.ts";
+import { GetItemsType, APIResponseType, instance } from "./api";
 
 export const usersAPI = {
   getUsers(
