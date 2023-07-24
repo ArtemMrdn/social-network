@@ -17,10 +17,10 @@ export type NewMessageFormValuesType = {
 const Dialogs: React.FC<PropsType> = (props) => {
   let state = props.dialogsPage;
 
-  let dialogsEleme = state.dialogs.map((d) => (
+  let dialogsElements = state.dialogs.map((d) => (
     <DialogItem name={d.name} key={d.id} id={d.id} />
   ));
-  let messagesEleme = state.messages.map((m) => (
+  let messagesElements = state.messages.map((m) => (
     <Message message={m.message} key={m.id} />
   ));
 
@@ -30,9 +30,9 @@ const Dialogs: React.FC<PropsType> = (props) => {
 
   return (
     <div className={s.dialogs}>
-      <div className={s.dialogsItems}>{dialogsEleme}</div>
+      <div className={s.dialogsItems}>{dialogsElements}</div>
       <div className={s.messages}>
-        <div>{messagesEleme}</div>
+        <div>{messagesElements}</div>
       </div>
       <AddMessageForm onSubmit={addNewMessage} />
     </div>

@@ -13,7 +13,7 @@ import {
   getUsersFilter,
 } from "../../redux/users-selectors";
 import { useHistory } from "react-router-dom";
-import queryString from "query-string";
+import * as queryString from "querystring";
 
 type PropsType = {};
 
@@ -55,7 +55,8 @@ export const Users: FC<PropsType> = (props) => {
     }
 
     dispatch(requestUsers(actualPage, pageSize, actualFilter));
-  }, [currentPage, dispatch, filter, history.location.search, pageSize]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     const query: QueryParamsType = {};
@@ -68,7 +69,8 @@ export const Users: FC<PropsType> = (props) => {
       pathname: "/developers",
       search: queryString.stringify(query),
     });
-  }, [filter, currentPage, history]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filter, currentPage]);
 
   const onPageChanged = (pageNumber: number) => {
     dispatch(requestUsers(pageNumber, pageSize, filter));

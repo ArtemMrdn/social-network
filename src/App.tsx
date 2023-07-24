@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "antd/dist/antd.css";
 import {
   BrowserRouter,
   Link,
@@ -8,15 +9,14 @@ import {
   Switch,
   withRouter,
 } from "react-router-dom";
-
-import { UsersPage } from "./compone/Users/UsersContainer";
+import { LoginPage } from "./components/Login/LoginPage";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
 import { initializeApp } from "./redux/app-reducer";
-import Preloader from "./compone/common/Preloader/Preloader";
+import Preloader from "./components/common/Preloader/Preloader";
 import store, { AppStateType } from "./redux/redux-store";
 import { withSuspense } from "./hoc/withSuspense";
-import { LoginPage } from "./compone/Login/LoginPage";
+import { UsersPage } from "./components/Users/UsersContainer";
 
 import { Breadcrumb, Layout, Menu } from "antd";
 import {
@@ -24,16 +24,16 @@ import {
   NotificationOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Header } from "./compone/Header/Header";
+import { Header } from "./components/Header/Header";
 
 const { SubMenu } = Menu;
 const { Content, Footer, Sider } = Layout;
 
 const DialogsContainer = React.lazy(
-  () => import("./compone/Dialogs/DialogsContainer")
+  () => import("./components/Dialogs/DialogsContainer")
 );
 const ProfileContainer = React.lazy(
-  () => import("./compone/Profile/ProfileContainer")
+  () => import("./components/Profile/ProfileContainer")
 );
 const ChatPage = React.lazy(() => import("./pages/Chat/ChatPage"));
 
@@ -97,8 +97,8 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                     {" "}
                     <Link to='/dialogs'>Messages</Link>
                   </Menu.Item>
-                  {/* <Menu.Item key='3'>option3</Menu.Item>
-                  <Menu.Item key='4'>option4</Menu.Item> */}
+                  <Menu.Item key='3'>option3</Menu.Item>
+                  <Menu.Item key='4'>option4</Menu.Item>
                 </SubMenu>
                 <SubMenu
                   key='sub2'
@@ -108,9 +108,9 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                   <Menu.Item key='5'>
                     <Link to='/developers'>Developers</Link>
                   </Menu.Item>
-                  {/* <Menu.Item key='6'>option6</Menu.Item>
+                  <Menu.Item key='6'>option6</Menu.Item>
                   <Menu.Item key='7'>option7</Menu.Item>
-                  <Menu.Item key='8'>option8</Menu.Item> */}
+                  <Menu.Item key='8'>option8</Menu.Item>
                 </SubMenu>
                 <SubMenu
                   key='sub3'
@@ -156,7 +156,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
           </Layout>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Social Network ©2023 Created by Artem Muradian
+          Social Network ©2023 Created by ArtemMrdn
         </Footer>
       </Layout>
 

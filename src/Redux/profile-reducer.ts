@@ -1,16 +1,16 @@
-import { profileAPI } from "../api/profile-api";
 import { FormAction, stopSubmit } from "redux-form";
 import { PhotosType, PostType, ProfileType } from "../types/types";
-import { BaseThunkType, InferActionsTypes } from "./redux-store.js";
+import { usersAPI } from "../api/users-api";
+import { profileAPI } from "../api/profile-api";
+import { BaseThunkType, InferActionsTypes } from "./redux-store";
 
 let initialState = {
-  po: [
+  posts: [
     { id: 1, message: "Hi, how are you?", likesCount: 10 },
     { id: 2, message: "It's my first post", likesCount: 12 },
   ] as Array<PostType>,
   profile: null as ProfileType | null,
   status: "",
-  newPostText: "",
 };
 
 const profileReducer = (
@@ -26,7 +26,7 @@ const profileReducer = (
       };
       return {
         ...state,
-        po: [...state.po, newPost],
+        posts: [...state.posts, newPost],
       };
     }
     case "SN/PROFILE/SET_STATUS": {
@@ -42,7 +42,7 @@ const profileReducer = (
     case "SN/PROFILE/DELETE_POST":
       return {
         ...state,
-        po: state.po.filter((p) => p.id !== action.postId),
+        posts: state.posts.filter((p) => p.id != action.postId),
       };
 
     case "SN/PROFILE/SAVE_PHOTO_SUCCESS":

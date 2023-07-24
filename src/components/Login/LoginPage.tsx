@@ -4,10 +4,10 @@ import {
   createField,
   GetStringKeys,
   Input,
-} from "../common/FormsControls/FormsControls.tsx";
-import { required } from "../../utils/validators/validators.ts";
+} from "../common/FormsControls/FormsControls";
+import { required } from "../../utils/validators/validators";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../../redux/auth-reducer.ts";
+import { login } from "../../redux/auth-reducer";
 import { Redirect } from "react-router-dom";
 import style from "./../common/FormsControls/FormsControls.module.css";
 import { AppStateType } from "../../redux/redux-store";

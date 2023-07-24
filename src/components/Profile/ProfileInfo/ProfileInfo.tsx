@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import s from "./ProfileInfo.module.css";
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
-import userPhoto from "../../../ass/images/user.jpg";
+import userPhoto from "../../../assets/images/user.jpg";
 import ProfileDataForm from "./ProfileDataForm";
 import { ContactsType, ProfileType } from "../../../types/types";
 
@@ -48,7 +48,7 @@ const ProfileInfo: React.FC<PropsType> = ({
         <img
           src={profile.photos.large || userPhoto}
           className={s.mainPhoto}
-          alt='profilePhoto'
+          alt='userPhoto'
         />
         {isOwner && <input type={"file"} onChange={onMainPhotoSelected} />}
 
@@ -107,13 +107,13 @@ const ProfileData: React.FC<ProfileDataPropsType> = ({
         <b>About me</b>: {profile.aboutMe}
       </div>
       <div>
-        <b>Conta</b>:{" "}
-        {Object.keys(profile.conta).map((key) => {
+        <b>Contacts</b>:{" "}
+        {Object.keys(profile.contacts).map((key) => {
           return (
             <Contact
               key={key}
               contactTitle={key}
-              contactValue={profile.conta[key as keyof ContactsType]}
+              contactValue={profile.contacts[key as keyof ContactsType]}
             />
           );
         })}
