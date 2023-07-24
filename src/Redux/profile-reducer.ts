@@ -1,6 +1,5 @@
 import { FormAction, stopSubmit } from "redux-form";
 import { PhotosType, PostType, ProfileType } from "../types/types";
-import { usersAPI } from "../api/users-api";
 import { profileAPI } from "../api/profile-api";
 import { BaseThunkType, InferActionsTypes } from "./redux-store";
 
@@ -42,7 +41,7 @@ const profileReducer = (
     case "SN/PROFILE/DELETE_POST":
       return {
         ...state,
-        posts: state.posts.filter((p) => p.id != action.postId),
+        posts: state.posts.filter((p) => p.id !== action.postId),
       };
 
     case "SN/PROFILE/SAVE_PHOTO_SUCCESS":
